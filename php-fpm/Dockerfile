@@ -2,34 +2,30 @@
 # MAINTAINER        Carson,C.J.Zeong <zcy@nicescale.com>
 # DOCKER-VERSION    1.6.2
 #
-# Dockerizing Nginx: Dockerfile for building Nginx images
+# Dockerizing php-fpm: Dockerfile for building php-fpm images
 #
-FROM       csphere/demobase:0.1
+FROM       csphere/centos:7.1
 MAINTAINER Carson,C.J.Zeong <zcy@nicescale.com>
 
 # Set environment variable
-ENV HTML_DIR /app
+ENV	APP_DIR /app
 
-# Install nginx server and php 
-RUN	yum -y install nginx mysqli php-cli php php-mysql php-pear php-ldap php-mbstring php-soap php-dom php-gd php-xmlrpc php-fpm php-mcrypt && \ 
+RUN	yum -y install nginx php-cli php-mysql php-pear php-ldap php-mbstring php-soap php-dom php-gd php-xmlrpc php-fpm php-mcrypt && \ 
 	yum clean all
 
-# Config and install scripts
-COPY material/setup /setup
-RUN chmod +x /setup/install && \
-	exec /setup/install
+RUN	sed -i "s/default_server//" /etc/nginx/nginx.conf
+RUN	echo "daemon=off;" >> /etc/nginx/conf.d/default.conf
+ADD	nginx_default.conf /etc/nginx/conf.d/default.conf
 
-# Delete setup scripts after install
-RUN rm -rf /setup
+ADD	php_www.conf /etc/php-fpm.d/www.conf
+RUN	sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/' /etc/php.ini
 
-# Add start container scripts
-COPY scripts /scripts
-RUN chmod +x /scripts/start
+RUN	mkdir -p /app && echo "<?php phpinfo(); ?>" > ${APP_DIR}/info.php
 
-EXPOSE 80 443
+EXPOSE	80 443
 
-ENTRYPOINT ["/scripts/start"]
-
-CMD ["runStart"]
+ADD	supervisor_nginx.conf /etc/supervisor.conf.d/nginx.conf
+ADD	supervisor_php-fpm.conf /etc/supervisor.conf.d/php-fpm.conf
 
 ONBUILD ADD . /app
+ONBUILD chown -R nginx:nginx /app

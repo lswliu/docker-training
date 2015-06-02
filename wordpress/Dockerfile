@@ -1,8 +1,5 @@
-#
-# MAINTAINER        Carson,C.J.Zeong <zcy@nicescale.com>
-# DOCKER-VERSION    1.6.2
-#
-# Dockerizing Wordpress: Dockerfile for building Wordpress images
-#
-FROM       csphere/demoweb:0.1
-MAINTAINER Carson,C.J.Zeong <zcy@nicescale.com>
+from csphere/php-fpm:5.4
+
+add init.sh /init.sh
+
+entrypoint ["/init.sh", "/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]

@@ -28,4 +28,4 @@ ADD	supervisor_nginx.conf /etc/supervisor.conf.d/nginx.conf
 ADD	supervisor_php-fpm.conf /etc/supervisor.conf.d/php-fpm.conf
 
 ONBUILD ADD . /app
-ONBUILD chown -R nginx:nginx /app
+ONBUILD RUN chown -R nginx:nginx /app

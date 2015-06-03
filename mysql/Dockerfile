@@ -14,7 +14,6 @@ RUN yum install -y mariadb mariadb-server && \
     yum clean all
 
 ADD mysqld_charset.cnf /etc/my.cnf.d/
-ADD supervisor_mysql.conf /etc/supervisor.conf.d/mysql.conf
 
 COPY scripts /scripts
 RUN chmod +x /scripts/start

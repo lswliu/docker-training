@@ -9,7 +9,7 @@ set -e
 if [[ -e /scripts/firstrun ]]; then
 	# config mariadb
 	/scripts/firstrun_maria
-    	rm /firstrun
+    	rm /scripts/firstrun
 else
 	# Cleanup previous mariadb sockets
 	if [[ -e ${DATA_DIR}/mysql.sock ]]; then

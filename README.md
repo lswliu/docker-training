@@ -85,4 +85,10 @@
 
 [培训镜像:](http://market.qcloud.com/detail.php?productId=140)http://market.qcloud.com/detail.php?productId=140
 
-###第四讲(未开课)
+###第四讲(已完成)
+
+###第五讲(已完成)
+
+###第六讲(已完成)
+
+## [观看课程视频地址](https://csphere.cn/training)

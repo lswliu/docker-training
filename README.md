@@ -23,8 +23,6 @@
 讲述3-4个实际应用中的例子（绝对的干货)
 ```
 
-[培训视频:](http://pan.baidu.com/s/1hq2COGc)http://pan.baidu.com/s/1hq2COGc
-
 【配合视频，翻译的文章】
 
 [Docker实战之入门以及Dockerfile(一)](http://git.oschina.net/dockerf/docker-practice/blob/master/Docker%E5%AE%9E%E6%88%98%E4%B9%8B%E5%85%A5%E9%97%A8%E4%BB%A5%E5%8F%8ADockerfile%28%E4%B8%80%29.md?dir=0&filepath=Docker%E5%AE%9E%E6%88%98%E4%B9%8B%E5%85%A5%E9%97%A8%E4%BB%A5%E5%8F%8ADockerfile%28%E4%B8%80%29.md&oid=63a62caaac5c4de2997b866d0da465a4cf016aea&sha=06f1a97af90c8d35713cacf8aac9fb86889de077)
@@ -53,8 +51,6 @@
 3、容器部署好后，如何利用Jenkins自动做集成测试
 ```
 
-[培训视频:](http://pan.baidu.com/s/1bn4j9Ht)http://pan.baidu.com/s/1bn4j9Ht
-
 【培训代码】
 
 [OSC:](http://git.oschina.net/dockerf/second)http://git.oschina.net/dockerf/second
@@ -75,8 +71,6 @@
 学习如何设置监控指标和报警策略
 学习如何设置，来收集该应用生成的日志，并图表化展现
 ```
-
-[培训视频:](http://pan.baidu.com/s/1qW7hNTq)http://pan.baidu.com/s/1qW7hNTq
 
 【培训代码】
 

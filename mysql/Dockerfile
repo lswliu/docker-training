@@ -10,7 +10,8 @@ MAINTAINER Carson,C.J.Zeong <zcy@nicescale.com>
 ENV DATA_DIR /var/lib/mysql
 
 # Install Mariadb
-RUN yum install -y mariadb mariadb-server && \
+RUN rpm --rebuilddb && \ 
+    yum install -y mariadb mariadb-server && \
     yum clean all
 
 ADD mysqld_charset.cnf /etc/my.cnf.d/

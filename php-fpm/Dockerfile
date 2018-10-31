@@ -10,7 +10,7 @@ MAINTAINER Carson,C.J.Zeong <zcy@nicescale.com>
 # Set environment variable
 ENV	APP_DIR /app
 
-RUN     yum -y swap -- remove fakesystemd -- install systemd systemd-libs && \
+RUN     rpm --rebuilddb &&  yum -y swap -- remove fakesystemd -- install systemd systemd-libs && \
         yum -y install nginx php-cli php-mysql php-pear php-ldap php-mbstring php-soap php-dom php-gd php-xmlrpc php-fpm php-mcrypt && \ 
 	yum clean all
 
